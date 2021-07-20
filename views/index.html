@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/iconMap.png">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+  <title>Google Api</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header--title">IP Address Tracker</h1>
+    <form class="header--form" action="/">
+      <input class="form--input" id="buscar" type="text" placeholder="Search for any IP address or domain" name="busquedaIP">
+      <img class="form--img" src="../images/icon-arrow.svg" alt="icon-arrow">
+    </form>
+    <section class="header--grid">
+      <div class="container--grid">
+        <div class="container--grid-item">
+          <h2 class="grid--item-title">IP ADDRESS</h2>
+          <p class="grid--item-contain">{{ip}}</p>
+        </div>
+        <div class="container--grid-item">
+          <h2 class="grid--item-title">LOCATION</h2>
+          <p class="grid--item-contain">{{region}}, {{city}}</p>
+        </div>
+        <div class="container--grid-item">
+          <h2 class="grid--item-title">TIMEZONE</h2>
+          <p class="grid--item-contain">{{timezone}}</p>
+        </div class="container--grid-item">
+        <div class="container--grid-item">
+          <h2 class="grid--item-title">ISP</h2>
+          <p class="grid--item-contain">{{isp}}</p>
+        </div>
+      </div>
+    </section>
+  </header>
+  <main id="map" class="main--map">
+    <div class="map--coords">
+      <p>
+        Latitud: <span id="lat">{{lat}}</span> <br> 
+        Longitud: <span id="lng">{{lng}}</span>
+      </p>
+    </div>
+  </main>
+  {% if primerIteracion %}
+    <script src="../js/script.js"></script>
+  {% else %}
+    <script src="../js/script2.js"></script>
+  {% endif %}
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCz8pBNx3QWaB9h0iIyqULr-KREgGVWcn4&callback=initMap"></script>
+</html>
